@@ -1,0 +1,12 @@
+.claude
+node_modules/
+.gestalt-planning/
+.claude/skills/
+/tmp/
+*.log
+bun.lock
+*.bun-build
+.env
+.env.local
+.env.*
+!.env.example

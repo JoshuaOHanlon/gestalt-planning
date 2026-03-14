@@ -1,0 +1,68 @@
+#!/usr/bin/env bun
+/**
+ * skill:check — Health summary for all SKILL.md files.
+ *
+ * Reports:
+ *   - Command validation (valid/invalid/snapshot errors)
+ *   - Template coverage (which SKILL.md files have .tmpl sources)
+ *   - Freshness check (generated files match committed files)
+ */
+
+import { discoverTemplates, discoverSkillFiles } from './discover-skills';
+import * as fs from 'fs';
+import * as path from 'path';
+import { execSync } from 'child_process';
+
+const ROOT = path.resolve(import.meta.dir, '..');
+
+// Find all SKILL.md files
+const SKILL_FILES = discoverSkillFiles(ROOT);
+
+let hasErrors = false;
+
+// ─── Templates ──────────────────────────────────────────────
+
+console.log('\n  Templates:');
+const TEMPLATES = discoverTemplates(ROOT);
+
+for (const { tmpl, output } of TEMPLATES) {
+  const tmplPath = path.join(ROOT, tmpl);
+  const outPath = path.join(ROOT, output);
+  if (!fs.existsSync(tmplPath)) {
+    console.log(`  \u26a0\ufe0f  ${output.padEnd(30)} — no template`);
+    continue;
+  }
+  if (!fs.existsSync(outPath)) {
+    hasErrors = true;
+    console.log(`  \u274c ${output.padEnd(30)} — generated file missing! Run: bun run gen:skill-docs`);
+    continue;
+  }
+  console.log(`  \u2705 ${tmpl.padEnd(30)} \u2192 ${output}`);
+}
+
+// Skills without templates
+for (const file of SKILL_FILES) {
+  const tmplPath = path.join(ROOT, file + '.tmpl');
+  if (!fs.existsSync(tmplPath) && !TEMPLATES.some(t => t.output === file)) {
+    console.log(`  \u26a0\ufe0f  ${file.padEnd(30)} — no template (OK if no $B commands)`);
+  }
+}
+
+// ─── Freshness ──────────────────────────────────────────────
+
+console.log('\n  Freshness:');
+try {
+  execSync('bun run scripts/gen-skill-docs.ts --dry-run', { cwd: ROOT, stdio: 'pipe' });
+  console.log('  \u2705 All generated files are fresh');
+} catch (err: any) {
+  hasErrors = true;
+  const output = err.stdout?.toString() || '';
+  console.log('  \u274c Generated files are stale:');
+  for (const line of output.split('\n').filter((l: string) => l.startsWith('STALE'))) {
+    console.log(`      ${line}`);
+  }
+  console.log('      Run: bun run gen:skill-docs');
+}
+
+console.log('');
+process.exit(hasErrors ? 1 : 0);

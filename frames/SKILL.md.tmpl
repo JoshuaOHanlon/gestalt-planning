@@ -12,14 +12,7 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-## Update Check (run first)
-
-```bash
-_UPD=$(~/.claude/skills/gestalt-planning/bin/gestalt-planning-update-check 2>/dev/null || .claude/skills/gestalt-planning/bin/gestalt-planning-update-check 2>/dev/null || true)
-[ -n "$_UPD" ] && echo "$_UPD" || true
-```
-
-If output shows `UPGRADE_AVAILABLE <old> <new>`: read `~/.claude/skills/gestalt-planning/gestalt-planning-upgrade/SKILL.md` and follow the "Inline upgrade flow" (AskUserQuestion → upgrade if yes, `touch ~/.gestalt-planning/last-update-check` if no). If `JUST_UPGRADED <from> <to>`: tell user "Running gestalt-planning v{to} (just updated!)" and continue.
+{{UPDATE_CHECK}}
 
 # Frames — Turn the Whole into Stable Chunks
 
