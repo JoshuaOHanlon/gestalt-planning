@@ -1,5 +1,5 @@
 ---
-name: gestalt-widen
+name: widen
 version: 1.0.0
 description: |
    Plan the next widening step for an existing vertical slice — adding one dimension of complexity at a time. Use this skill after a vertical slice is implemented and the user wants to expand the system. This skill does NOT write code — it produces a widening plan document that the user takes into Plan Mode (Claude Code, Codex, etc.) to implement. Trigger on phrases like "widen the slice", "Layer 5", "add error handling", "add the next thing", "expand this", "what should we add next", "iterate on this", "add unhappy paths", "harden this", "plan the next step", or "what's missing." The user is a gestalt learner — they need to see one new layer of complexity at a time, not a batch of changes that fragment their understanding of the whole.

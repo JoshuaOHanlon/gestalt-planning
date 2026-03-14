@@ -1,5 +1,5 @@
 ---
-name: gestalt-frames
+name: frames
 version: 1.0.0
 description: |
    Break a system shape into 4–7 meaningful architectural frames (chunks). Use this skill when the user has a system shape document and wants to decompose it into coherent regions for implementation. Trigger on phrases like "break this into frames", "chunk this up", "Layer 2", "architectural frames", "what are the main parts", "how should I structure this", "critique the architecture", or "act as an architectural mirror." The user is a gestalt learner — they need meaningful chunks (architectural regions), not atomized task lists. This skill reads an existing system-shape.md and proposes how to decompose it.
@@ -14,7 +14,7 @@ allowed-tools:
 
 # Frames — Turn the Whole into Stable Chunks
 
-The user has a system shape document (from the gestalt-system-shape skill or written by hand). Your job is to decompose it into **4–7 meaningful architectural frames** — coherent regions of the system that the user can hold in their head as units.
+The user has a system shape document (from the system-shape skill or written by hand). Your job is to decompose it into **4–7 meaningful architectural frames** — coherent regions of the system that the user can hold in their head as units.
 
 ## What a frame is
 

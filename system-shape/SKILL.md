@@ -1,5 +1,5 @@
 ---
-name: gestalt-system-shape
+name: system-shape
 version: 1.0.0
 description: |
    Build a whole-system brief ("system shape") before writing any code. Use this skill when the user starts a new feature, service, module, or app and needs to map out the whole picture first. Trigger on phrases like "system shape", "whole-system brief", "map this out", "let's start a new feature", "help me think through X before we build it", "what does this system look like", or "build the whole picture." Also trigger when the user says "use the gestalt workflow" or "Layer 1." This skill is for the planning and brainstorming phase — the user is a top-down/gestalt learner who needs to see the whole system before the parts make sense. Do NOT write code. Produce a document.
@@ -66,6 +66,6 @@ Diagrams use boxes and arrows. Follow these rules:
 
 ## Output
 
-A `system-shape.md` file saved to the project. This document is the input for the next skills in the gestalt workflow (gestalt-frames, gestalt-invariants, gestalt-vertical-slice).
+A `system-shape.md` file saved to the project. This document is the input for the next skills in the gestalt workflow (frames, invariants, vertical-slice).
 
 When the user is satisfied with the system shape, let them know: *"The system shape looks solid. When you're ready, you can use the frames skill (Layer 2) to break this into architectural chunks, or the invariants skill (Layer 3) to define the rules."*

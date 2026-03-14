@@ -1,5 +1,5 @@
 ---
-name: gestalt-invariants
+name: invariants
 version: 1.0.0
 description: |
    Define the invariants (governing rules) a system must always obey before implementation begins. Use this skill when the user wants to articulate system constraints, rules, or non-negotiable properties. Trigger on phrases like "define invariants", "what are the rules", "Layer 3", "system constraints", "what must never break", "governing principles", "define the contracts", or "what are the hard rules." Also trigger when the user says things like "before we start coding, what are the rules?" This skill uses Socratic questioning to extract constraints the user already knows but hasn't written down. The user is a gestalt learner — invariants are their highest-value contribution to the human-agent collaboration.

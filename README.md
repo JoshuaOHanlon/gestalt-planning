@@ -40,15 +40,20 @@ Imagine you're building an email ingestion pipeline that classifies incoming mes
 
 ## Install
 
-Open Claude Code and paste this:
+```bash
+git clone https://github.com/joshuaohanlon/gestalt-planning.git ~/.claude/skills/gestalt-planning
+~/.claude/skills/gestalt-planning/setup
+```
 
-> Install gestalt-planning: run `git clone https://github.com/joshuaohanlon/gestalt-planning.git ~/.claude/skills/gestalt-planning` then create symlinks for each skill directory: `ln -s ~/.claude/skills/gestalt-planning/system-shape ~/.claude/skills/gestalt-system-shape && ln -s ~/.claude/skills/gestalt-planning/frames ~/.claude/skills/gestalt-frames && ln -s ~/.claude/skills/gestalt-planning/invariants ~/.claude/skills/gestalt-invariants && ln -s ~/.claude/skills/gestalt-planning/vertical-slice ~/.claude/skills/gestalt-vertical-slice && ln -s ~/.claude/skills/gestalt-planning/widen ~/.claude/skills/gestalt-widen` then add a "gestalt-planning" section to CLAUDE.md that lists the available skills: /system-shape (Layer 1 — map the whole system), /frames (Layer 2 — decompose into architectural chunks), /invariants (Layer 3 — define governing rules), /vertical-slice (Layer 4 — plan the thinnest end-to-end path), /widen (Layer 5 — plan the next expansion). Note that these are planning skills — none write code. The user takes their outputs into Plan Mode to implement.
+Then tell Claude Code about the skills — open Claude Code and paste this:
+
+> Add a "gestalt-planning" section to CLAUDE.md that lists the available skills: /system-shape (Layer 1 — map the whole system), /frames (Layer 2 — decompose into architectural chunks), /invariants (Layer 3 — define governing rules), /vertical-slice (Layer 4 — plan the thinnest end-to-end path), /widen (Layer 5 — plan the next expansion). Note that these are planning skills — none write code. The user takes their outputs into Plan Mode to implement.
 
 ## Uninstall
 
 Open Claude Code and paste this:
 
-> Uninstall gestalt-planning: remove the 5 skill symlinks `rm ~/.claude/skills/gestalt-system-shape ~/.claude/skills/gestalt-frames ~/.claude/skills/gestalt-invariants ~/.claude/skills/gestalt-vertical-slice ~/.claude/skills/gestalt-widen` then remove the repo `rm -rf ~/.claude/skills/gestalt-planning` then remove the "gestalt-planning" section from CLAUDE.md.
+> Uninstall gestalt-planning: remove the 5 skill symlinks `rm -f ~/.claude/skills/system-shape ~/.claude/skills/frames ~/.claude/skills/invariants ~/.claude/skills/vertical-slice ~/.claude/skills/widen` then remove the repo `rm -rf ~/.claude/skills/gestalt-planning` then remove the "gestalt-planning" section from CLAUDE.md.
 
 ---
 

@@ -55,10 +55,10 @@ _Draw the system as boxes and arrows. Show actors, services, data stores, and ex
 _The sections below are filled in by subsequent gestalt skills._
 
 ## Frames
-_Use gestalt-frames (Layer 2) to complete._
+_Use frames (Layer 2) to complete._
 
 ## Invariants
-_Use gestalt-invariants (Layer 3) to complete._
+_Use invariants (Layer 3) to complete._
 
 ## Vertical Slice Plan
-_Use gestalt-vertical-slice (Layer 4) to complete._
+_Use vertical-slice (Layer 4) to complete._

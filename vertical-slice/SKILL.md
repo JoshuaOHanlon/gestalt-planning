@@ -1,5 +1,5 @@
 ---
-name: gestalt-vertical-slice
+name: vertical-slice
 version: 1.0.0
 description: |
    Plan the thinnest possible end-to-end slice that proves the architecture. Use this skill when the user has finished planning (system shape, frames, invariants) and wants to prepare for implementation. This skill does NOT write code — it produces a vertical slice plan document that the user takes into Plan Mode (Claude Code, Codex, etc.) to implement. Trigger on phrases like "vertical slice", "thinnest slice", "Layer 4", "plan the first path", "prove the architecture", "end-to-end slice", "prepare for coding", "plan the smallest working version", or "what should we build first." The user is a gestalt learner — they understand architecture by seeing a complete miniature, not by reading about all the parts. This skill reads system-shape.md (with frames and invariants) and produces an implementation-ready plan.
