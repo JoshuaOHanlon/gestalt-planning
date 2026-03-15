@@ -49,12 +49,6 @@ Then tell Claude Code about the skills — open Claude Code and paste this:
 
 > Add a "gestalt-planning" section to CLAUDE.md that lists the available skills: /system-shape (Layer 1 — map the whole system), /frames (Layer 2 — decompose into architectural chunks), /invariants (Layer 3 — define governing rules), /vertical-slice (Layer 4 — plan the thinnest end-to-end path), /widen (Layer 5 — plan the next expansion). Note that these are planning skills — none write code. The user takes their outputs into Plan Mode to implement.
 
-## Uninstall
-
-Open Claude Code and paste this:
-
-> Uninstall gestalt-planning: remove the 5 skill symlinks `rm -f ~/.claude/skills/system-shape ~/.claude/skills/frames ~/.claude/skills/invariants ~/.claude/skills/vertical-slice ~/.claude/skills/widen` then remove the repo `rm -rf ~/.claude/skills/gestalt-planning` then remove the "gestalt-planning" section from CLAUDE.md.
-
 ---
 
 ## `/system-shape` — Layer 1
@@ -119,6 +113,26 @@ The vertical slice works. Now add error handling. Then the second entity. Then a
 - **Cumulative invariant coverage tracking** — tracks which invariants are now exercised across all implemented steps. Flags invariants that remain ⬜ after several steps.
 - **Concrete visible outcomes** — not "errors will be handled" but "a malformed email produces a visible 'failed ingestion' entry on the ops surface"
 - **Output:** `widen-plan-{dimension}.md`
+
+## Troubleshooting
+
+**Skill not showing up in Claude Code?** Run `cd ~/.claude/skills/gestalt-planning && ./setup` (or `cd .claude/skills/gestalt-planning && ./setup` for project installs). This rebuilds symlinks so Claude can discover the skills.
+
+**Project copy is stale?** Run `/gestalt-planning-upgrade` — it updates both the global install and any vendored project copy automatically.
+
+**`bun` non installed?** Install it: `curl -fsSL https://bun.sh/install | bash`
+
+## Upgrading
+
+Run `/gestalt-planning-upgrade` in Claude Code. It detects your install type (global or vendored), upgrades, syncs any project copies, and shows what's new.
+
+Or set `auto_upgrade: true` in `~/.gestalt-planning/config.yaml` to upgrade automatically whenever a new version is available.
+
+## Uninstalling
+
+Open Claude Code and paste this:
+
+> Uninstall gestalt-planning: remove the 5 skill symlinks by running `for s in system-shape frames invariants vertical-slice widen; do rm -f ~/.claude/skills/$s; done` then run `rm -rf ~/.claude/skills/gestalt-planning` then remove the "gestalt-planning" section from CLAUDE.md. If this project also has gestalt-planning at `.claude/skills/gestalt-planning`, remove it by running `for s in system-shape frames invariants vertical-slice widen; do rm -f .claude/skills/$s; done && rm -rf .claude/skills/gestalt-planning` and remove the gestalt-planning section from the project CLAUDE.md too.
 
 ## License
 
